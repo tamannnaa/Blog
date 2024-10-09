@@ -1,4 +1,4 @@
-# Blog Application
+# Blog Application 🌐🚀
 
 A simple blog application built with **Express.js**, **MongoDB**, and **EJS** for rendering views. This application supports user authentication for different roles (admin and author), allowing users to create, read, update, and delete blog posts.
 
@@ -16,7 +16,7 @@ A simple blog application built with **Express.js**, **MongoDB**, and **EJS** fo
 - [Contributing](#contributing)
 - [License](#license)
 
-## Features
+## Features 🌟
 - **User Authentication**: Sign up and log in with roles (`admin` or `author`).
 - **Admin and Author Dashboards**: Separate dashboards for managing posts.
 - **File Uploads**: Support for multiple file uploads using **Multer**.
@@ -25,12 +25,12 @@ A simple blog application built with **Express.js**, **MongoDB**, and **EJS** fo
 - **Profile Management**: View posts created by the logged-in user.
 - **View Full Post**: Read the full content of a post with all the details.
 
-## Prerequisites
+## Prerequisites ⚙️
 Before you begin, ensure you have the following installed on your local machine:
 - **Node.js** (version 14.x or later)
 - **MongoDB** (Ensure MongoDB server is running on your machine)
 
-## Technologies Used
+## Technologies Used 👨‍💻
 
 - **Node.js**: JavaScript runtime for building server-side applications.
 - **Express.js**: Web framework for Node.js.
@@ -40,7 +40,7 @@ Before you begin, ensure you have the following installed on your local machine:
 - **Multer**: Middleware for handling file uploads.
 - **Express-Session**: Middleware for managing sessions.
 
-## Installation
+## Installation 🔧
 
 Follow these steps to set up the project locally:
 
@@ -57,7 +57,7 @@ Follow these steps to set up the project locally:
 3. Set up your MongoDB database. Ensure MongoDB is running and create a database named blog.
 4. Update the connection string in the code to match your MongoDB setup.
 
-## Folder Structure
+## Folder Structure 📂
 
 | Directory/File        | Description                                   |
 |-----------------------|-----------------------------------------------|
@@ -68,12 +68,12 @@ Follow these steps to set up the project locally:
 | `package.json`        | Project dependencies and scripts             |
 
 
-## User Roles
+## User Roles 🔑
 
  ### Admin: Can view, add, edit, and delete posts as well as manage author accounts.
  ### Author: Can create posts, update existing posts, and view their own content.
 
-## Usage
+## Usage 🔑
 1. Start the server
 
     ```bash
@@ -82,9 +82,8 @@ Follow these steps to set up the project locally:
 2. Open your browser and navigate to http://localhost:3000 to access the application.
 
 
-## Routes
+## Routes📡
 
-## Routes
 
 | Route                | Method | Description                                |
 |----------------------|--------|--------------------------------------------|
@@ -107,7 +106,7 @@ Follow these steps to set up the project locally:
 | `/deleteauthor`      | POST   | Delete selected author (admin protected)   |
 | `/authordashboard`   | GET    | View authors list (admin protected)        |
 
-## Contributing
+## Contributing 🤝
 Contributions are welcome! To contribute, follow these steps:
 
 1. Fork the project.
@@ -125,5 +124,5 @@ Contributions are welcome! To contribute, follow these steps:
 
 8. Open a Pull Request.
 
-## License
+## License 📄
 This project is licensed under the MIT License. See the LICENSE file for more information.
