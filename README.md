@@ -73,7 +73,7 @@ Follow these steps to set up the project locally:
  ### Admin: Can view, add, edit, and delete posts as well as manage author accounts.
  ### Author: Can create posts, update existing posts, and view their own content.
 
-## Usage 🔑
+## Usage 💻
 1. Start the server
 
     ```bash
