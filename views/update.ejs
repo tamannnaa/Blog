@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Post</title>
+    <style>
+        body {
+            font-family: serif, Georgia, 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(160, 154, 154);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 100%; /* Set the width to 100% */
+            max-width: 400px;
+            padding: 20px;
+            background-color: #dbcfcf;
+            box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            text-align: center; /* Center align content */
+        }
+        h1 {
+            color: #333;
+            margin-top: 0; /* Remove default margin */
+        }
+        form {
+            text-align: left; /* Align form elements to the left */
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        select,
+        textarea,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-family: serif, Georgia, 'Times New Roman', Times, serif; /* Apply font to button text */
+        }
+        button {
+            display: block;
+            margin: 20px auto; /* Center the button */
+            padding: 10px 20px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            background-color: #fff;
+            transition: background-color 0.3s, color 0.3s;
+            width: 150px; /* Set width for the buttons */
+        }
+        button:hover {
+            color: #fff;
+            background-color: #333; /* Change color on hover */
+            text-decoration: underline;
+        }
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Update Post</h1>
+        <form action="/updatepost" method="POST" enctype="multipart/form-data">
+            <input type="text" name="old" value="<%=posts[0].title%>" hidden>
+            <label for="post">Enter New Title</label>
+            <input id="post" type="text" value="<%=posts[0].title%>" name="post" required><br><br>
+            <label for="content">Enter New Content:</label><br>
+            <textarea id="content" name="content" required><%=posts[0].content%></textarea><br><br>
+
+            <label for="pic">Add New Images (optional):</label>
+            <input id="pic" type="file" name="pic" multiple accept="image/*"><br><br>
+
+            <h3>Existing Images:</h3>
+            <% posts[0].filepaths.forEach((filepath) => { %>
+                <img src="/<%= filepath %>" alt="Post Image" style="width: 100px; height: auto; margin: 5px;">
+            <% }) %>
+
+            <button type="submit">Update Post</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(160, 154, 154);
+            margin: 0;
+            padding: 20px;
+            color: #333; 
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #dbcfcf;
+            border-radius: 8px;
+            box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
+            position: relative; /* Add relative positioning */
+        }
+        h1, h2 {
+            text-align: center;
+            color: black; 
+        }
+        .post-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            margin-bottom: 20px;
+            border:2px solid #333;
+            border-radius: 5px;
+            position: relative; /* Add relative positioning */
+        }
+        .post-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .post-content {
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .post-author {
+            margin-bottom: 10px;
+            color: #666;
+            position: absolute; /* Add absolute positioning */
+            top: 10px; /* Adjust top positioning */
+            right: 10px; /* Adjust right positioning */
+        }
+        .post-images img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .post-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            text-decoration: none; 
+        }
+        .btn-update,
+        .btn-delete {
+            padding: 8px 16px;
+            border: 2px solid #333; 
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            text-decoration: none; 
+            display: inline-block;
+            background-color: #fff;
+            color: black;
+        }
+        .btn-update:hover,
+        .btn-delete:hover {
+            background-color: #333;
+            color: #fff;
+            text-decoration: underline;
+        }
+        
+        .eeee {
+            padding: 8px 16px;
+            border: 2px solid #333; 
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            text-decoration: none; 
+            display: inline-block;
+            background-color: #fff;
+            color: black;
+        }
+        
+        .eeee:hover {
+            background-color: #333;
+            color: #fff;
+            text-decoration: underline;
+        }
+        .add-post {
+            text-align: left;
+            margin-bottom: 10px; 
+        }
+        .right {
+            text-align: right;
+            margin-bottom: 10px;
+        }
+        .dash, .profile {
+            position: absolute; /* Add absolute positioning */
+            top: 20px; /* Adjust top positioning */
+            border-radius: 50%; /* Make buttons round */
+            padding: 10px; /* Adjust padding for roundness */
+            text-align: center;
+        }
+        .read-more{
+            color:#333;
+        }
+        .read-more:hover {
+            color:#927e7e;
+            text-decoration: underline;
+        }
+        
+        .dash {
+            right: 120px; /* Adjust right positioning for Author Dashboard */
+        }
+        
+        .profile {
+            right: 20px; /* Adjust right positioning for Personal Profile */
+        }
+        
+        .post-actions {
+            position: relative; /* Add relative positioning */
+        }
+        
+        .right {
+            bottom: 20px; /* Adjust bottom positioning */
+            right: 20px; /* Adjust right positioning */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, <%= username %>!</h1>
+        <a class="dash eeee" href="/authordashboard">AD</a> <!-- AD for Author Dashboard -->
+        <a class="profile eeee" href="/profile" style="width: 20px; height: 20px; line-height: 20px;"><%= username[0].toUpperCase() %></a> <!-- Display the first character of the username -->
+
+        <% posts.forEach(post => { %>
+            <div class="post-card">
+                <div class="post-title"><%= post.title %></div>
+                <div class="post-author"><b><i><%= post.author %>'s</i></b> Blog</div>
+                
+                <div class="post-content"><%= post.content.substring(0, 150) %>... <a href="/fullpost/<%= post.title %>" class="read-more">Read More</a></div>
+                <% if(post.filepaths && post.filepaths.length>0){ %>
+                    <div class="post-images">
+                        <% post.filepaths.forEach(filepath=>{ %>
+                            <img src="<%= filepath %>" alt="Post Image">
+                        <% }); %>
+                    </div>
+                <% } %>
+                <div class="post-actions">
+                    <a class="btn btn-update eeee" href="/updatepost/<%= post.title %>">Update</a>
+                    <a class="btn btn-delete eeee" href="/deletepost/<%= post.title %>">Delete</a>
+                </div>
+            </div>
+        <% }); %>
+        
+        <h2 class="add-post">Share your thoughts <a class="eeee" href="/addpost">Add Post</a></h2>
+        <div class="right">
+            <a class="eeee" href="/deleteauthor">Delete Author</a>
+            <a class="eeee" href="/logout">Logout</a>
+        </div>
+    </div>
+</body>
+</html>

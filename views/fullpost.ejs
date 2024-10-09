@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= post.title %></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(160, 154, 154);
+            margin: 0;
+            padding: 20px;
+            color: #333; 
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #dbcfcf;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1, h2 {
+            text-align: center;
+            color: black; 
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        li {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px solid #333;
+            border-radius: 5px;
+        }
+        
+        a {
+            display: inline-block;
+            padding: 8px 16px;
+            border: 2px solid #333; 
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            text-decoration: none;
+            background-color: #fff;
+            color: black;
+        }
+        
+        a:hover {
+            background-color: #333;
+            color: #fff;
+            text-decoration: underline;
+        }
+        
+        .post-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px solid #333;
+            border-radius: 5px;
+        }
+        
+        .post-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .post-author {
+            margin-bottom: 10px;
+            color: #666;
+        }
+        
+        .post-content {
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .post-images img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="post-card">
+            <div class="post-title"><%= post.title %></div>
+            <div class="post-author"><b><i><%= post.author %>'s</i></b> Blog</div>
+
+            <div class="post-content"><%= post.content %></div>
+            <% if(post.filepaths && post.filepaths.length>0){ %>
+                <div class="post-images">
+                    <% post.filepaths.forEach(filepath=>{ %>
+                        <img src="/<%= filepath %>" alt="Post Image">
+
+                    <% }); %>
+                </div>
+            <% } %>
+        </div>
+        <!-- Add back button or link to return to the home page -->
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>

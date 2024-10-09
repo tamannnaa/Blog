@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(160, 154, 154);
+            margin: 0;
+            padding: 20px;
+            color: #333; 
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #dbcfcf;
+            border-radius: 8px;
+            box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        
+        h1, h2 {
+            text-align: center;
+            color: black; 
+        }
+        
+        .post-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            position: relative; /* Add relative positioning */
+        }
+        
+        .post-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .post-content {
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .post-author {
+            margin-bottom: 10px;
+            color: #666;
+            position: absolute; /* Add absolute positioning */
+            top: 10px; /* Adjust top positioning */
+            right: 10px; /* Adjust right positioning */
+        }
+        
+        .post-images img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        
+        .post-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            text-decoration: none; 
+        }
+        
+        .btn-update,
+        .btn-delete,
+        a {
+            padding: 8px 16px;
+            border: 2px solid #333; 
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            text-decoration: none; 
+            display: inline-block;
+            background-color: #fff;
+            color: black;
+        }
+        
+        .btn-update:hover,
+        .btn-delete:hover,
+        a:hover {
+            background-color: #333;
+            color: #fff;
+            text-decoration: underline;
+        }
+        
+        .add-post {
+            text-align: left;
+            margin-bottom: 10px; 
+        }
+        
+        .right {
+            text-align: right;
+            margin-bottom: 10px;
+        }
+        
+        .profile {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            border-radius: 50%;
+            padding: 10px;
+            text-align: center;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, <%= username %>!</h1>
+
+        <% posts.forEach(post => { %>
+            <div class="post-card">
+                <div class="post-title"><%= post.title %></div>
+                <div class="post-content"><%= post.content %></div>
+                <div class="post-author"><b><i><%= post.author %>'s</i></b> Blog</div> <!-- Adjusted for consistency -->
+                
+                <% if(post.filepaths && post.filepaths.length>0){ %>
+                    <div class="post-images">
+                        <% post.filepaths.forEach(filepath=>{ %>
+                            <img src="<%= filepath %>" alt="Post Image">
+                        <% }); %>
+                    </div>
+                <% } if(username==post.author){%>
+                <div class="post-actions">
+                    <a class="btn btn-update" href="/updatepost/<%= post.title %>">Update</a>
+                    <a class="btn btn-delete" href="/deletepost/<%= post.title %>">Delete</a>
+                </div>
+                <% }%>
+            </div>
+       <%}); %>
+        
+        <h2 class="add-post">Share your thoughts <a href="/addpost">Add Post</a></h2>
+        <a href="/profile" class="profile" style="width: 20px; height: 20px; line-height: 20px;"><%= username[0].toUpperCase() %></a>
+        <a href="/logout" class="right">Logout</a>
+    </div>
+</body>
+</html>

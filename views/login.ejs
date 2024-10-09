@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: serif, Georgia, 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(160, 154, 154);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 100%; /* Set the width to 100% */
+            max-width: 400px;
+            padding: 20px;
+            background-color: #dbcfcf;
+            box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            text-align: center; /* Center align content */
+        }
+        h1 {
+            color: #333;
+            margin-top: 0; /* Remove default margin */
+        }
+        form {
+            text-align: left; /* Align form elements to the left */
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="password"],
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-family: serif, Georgia, 'Times New Roman', Times, serif; /* Apply font to button text */
+        }
+        button {
+            display: block;
+            margin: 20px auto; /* Center the button */
+            padding: 10px 20px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            background-color: #fff;
+            transition: background-color 0.3s, color 0.3s;
+            width: 150px; /* Set width for the buttons */
+        }
+        button:hover {
+            color: #fff;
+            background-color: #333; /* Change color on hover */
+            text-decoration: underline;
+        }
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #fff;
+            font-family: serif, Georgia, 'Times New Roman', Times, serif;
+            box-sizing: border-box;
+        }
+        select:focus {
+            outline: none;
+            border-color: #555; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <h1>Login</h1>
+        <% if(message){ %>
+            <h3><%= message %></h3>
+        <% } %>
+        
+        <form action="/login" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+            <select id="role" name="role">
+                <option value="admin">Admin</option>
+                <option value="author">Author</option>
+            </select><br><br>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? Sign up here </p>
+        <a href="/signup">Sign Up</a>
+    </div>
+</body>
+</html>
