@@ -110,11 +110,11 @@ Follow these steps to set up the project locally:
 ## Contributing
 Contributions are welcome! To contribute, follow these steps:
 
-Fork the project.
-Create a new feature branch (git checkout -b feature-branch).
-Commit your changes (git commit -m "Added a new feature").
-Push to the branch (git push origin feature-branch).
-Open a Pull Request.
+1. Fork the project.
+2. Create a new feature branch (git checkout -b feature-branch).
+3. Commit your changes (git commit -m "Added a new feature").
+4. Push to the branch (git push origin feature-branch).
+5. Open a Pull Request.
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for more information.
