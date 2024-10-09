@@ -54,17 +54,19 @@ Follow these steps to set up the project locally:
 
    ```bash
    npm install
-
-3.Set up your MongoDB database. Ensure MongoDB is running and create a database named blog.
-
+3. Set up your MongoDB database. Ensure MongoDB is running and create a database named blog.
 4. Update the connection string in the code to match your MongoDB setup.
 
 ## Folder Structure
-|-- upload/                # Directory where uploaded files are stored
-|-- views/                 # Contains EJS templates for rendering pages
-|-- app.js                 # Main server file
-|-- README.md              # This README file
-|-- package.json           # Project dependencies and scripts
+
+| Directory/File        | Description                                   |
+|-----------------------|-----------------------------------------------|
+| `upload/`             | Directory where uploaded files are stored    |
+| `views/`              | Contains EJS templates for rendering pages    |
+| `app.js`              | Main server file                             |
+| `README.md`           | This README file                             |
+| `package.json`        | Project dependencies and scripts             |
+
 
 ## User Roles
 
