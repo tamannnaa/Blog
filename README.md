@@ -1,4 +1,4 @@
-# Blog Application 🌐🚀
+# BlogFusion 🌐🚀
 
 A simple blog application built with **Express.js**, **MongoDB**, and **EJS** for rendering views. This application supports user authentication for different roles (admin and author), allowing users to create, read, update, and delete blog posts.
 
